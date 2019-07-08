@@ -49,11 +49,14 @@ containers:
 ```
 # Using a proxy to access.  Need to launch this command from the master node to accept connections
 # Can use a service below to remove this requirement.
+# The ip address is the address of the master node (the same node you're running this command on).
 
 kubectl proxy --address=192.168.1.10 --port 8001 --accept-hosts '.*'
 ```
 
 # Verify
+
+192.168.1.10 is the ip address of the master node.
 
 ```
 http://192.168.1.10:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
@@ -64,6 +67,8 @@ http://192.168.1.10:8001/api/v1/namespaces/kube-system/services/https:kubernetes
 ```
 kubectl edit service/kubernetes-dashboard --namespace=kube-system
 ```
+
+192.168.1.10 is the ip address of the master node.
 
 ```
 spec:
@@ -81,6 +86,8 @@ spec:
 ```
 
 ### Dashboard can now be accessed using
+
+192.168.1.10 is the ip address of the master node.
 
 ```
 https://192.168.1.10
