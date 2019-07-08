@@ -3,7 +3,9 @@ This project describes how to get k8s dashboard running on your rpi cluster with
 
 ## Deploy arm version of Kubernetes dashboard
 
+```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard-arm.yaml
+```
 
 ## Need to grant access so we don't have log in every time.  Don't do this in production or any important system.
 
@@ -30,7 +32,9 @@ subjects:
 
 ### Edit to skip login
 
+```
 kubectl edit deployment/kubernetes-dashboard --namespace=kube-system
+```
 
 ```
 containers:
@@ -51,11 +55,15 @@ kubectl proxy --address=192.168.1.10 --port 8001 --accept-hosts '.*'
 
 # Verify
 
+```
 http://192.168.1.10:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+```
 
 ## Edit the dashboard service to allow access to the node without using kubectl proxy
 
+```
 kubectl edit service/kubernetes-dashboard --namespace=kube-system
+```
 
 ```
 spec:
@@ -74,8 +82,9 @@ spec:
 
 ### Dashboard can now be accessed using
 
+```
 https://192.168.1.10
-
+```
 
 ## Resources
 
