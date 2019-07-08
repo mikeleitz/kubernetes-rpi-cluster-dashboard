@@ -9,6 +9,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/
 
 ### Create file and create ClusterRoleBinding
 
+```
 dashboard-admin.yaml
 
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -25,18 +26,19 @@ subjects:
 - kind: ServiceAccount
   name: kubernetes-dashboard
   namespace: kube-system
-
+```
 
 ### Edit to skip login
 
 kubectl edit deployment/kubernetes-dashboard --namespace=kube-system
 
+```
 containers:
       - args:
         - --auto-generate-certificates
         - --enable-skip-login            # Add this to put in a skip creds option when logging in.
         image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
-
+```
 
 ## Allow access to the dashboard pod
 
@@ -55,6 +57,7 @@ http://192.168.1.10:8001/api/v1/namespaces/kube-system/services/https:kubernetes
 
 kubectl edit service/kubernetes-dashboard --namespace=kube-system
 
+```
 spec:
   clusterIP: 10.102.204.112
   externalIPs:            # Add this with the ip on next line
@@ -67,6 +70,7 @@ spec:
     k8s-app: kubernetes-dashboard
   sessionAffinity: None
   type: LoadBalancer        # Change to LoadBalancer
+```
 
 ### Dashboard can now be accessed using
 
