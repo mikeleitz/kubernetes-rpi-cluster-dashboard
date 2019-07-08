@@ -90,13 +90,13 @@ https://192.168.1.10
 
 ### Main dashboard project github
 
-https://github.com/kubernetes/dashboard
-https://github.com/kubernetes/dashboard/wiki/Installation
+ * https://github.com/kubernetes/dashboard
+ * https://github.com/kubernetes/dashboard/wiki/Installation
 
 ### Useful information used to get it running
 
-https://stackoverflow.com/questions/46664104/how-to-sign-in-kubernetes-dashboard
-https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges
-https://www.thehumblelab.com/deploying-kubernetes-dashboard-in-the-lab/
-https://github.com/kubernetes/dashboard/wiki/Access-control
-https://stackoverflow.com/questions/36270602/how-to-access-kubernetes-ui-via-browser
+ * https://stackoverflow.com/questions/46664104/how-to-sign-in-kubernetes-dashboard
+ * https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges
+ * https://www.thehumblelab.com/deploying-kubernetes-dashboard-in-the-lab/
+ * https://github.com/kubernetes/dashboard/wiki/Access-control
+ * https://stackoverflow.com/questions/36270602/how-to-access-kubernetes-ui-via-browser
