@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  labels:
+    app: mysql
+spec:
+  containers:
+    - name: mysql
+      image: biarms/mysql:latest
+      env:
+      - name: MYSQL_ROOT_PASSWORD  # This sets the mysql root user password
+        value: mysql               # username/password is root/mysql
+      volumeMounts:
+      - name: mysql
+        mountPath: /var/lib/mysql  # This is the only relevant path for mysql.  All database files go here.
+  volumes:
+  - name: mysql
+    persistentVolumeClaim:
+      claimName: mysql-pvc         # Use mysql-pvc persistent volumne claim.  I use a nfs share directory on synology.
