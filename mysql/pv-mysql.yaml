@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: mysql-pv
+  namespace: tools  
 spec:
   capacity:
     storage: 5Gi         # MySQL pod asking for 5GB
