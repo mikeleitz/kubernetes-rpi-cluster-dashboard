@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysq-svc
+  namespace: tools  
 spec:
   type: LoadBalancer
   selector:
