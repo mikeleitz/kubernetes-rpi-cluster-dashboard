@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  namespace: tools
+  labels:
+    app: mysql 
+spec:
+  containers:
+    - name: mysql
+      image: biarms/mysql:latest
+      env:
+      - name: MYSQL_ROOT_PASSWORD
+        value: mysql
+      args:
+      - --character-set-server=utf8
+      - --collation-server=utf8_bin
+      - --transaction-isolation=READ-COMMITTED
+      - --lower_case_table_names=1
+      volumeMounts:
+      - name: mysql
+        mountPath: /var/lib/mysql
+  volumes:
+  - name: mysql 
+    persistentVolumeClaim: 
+      claimName: mysql-pvc
