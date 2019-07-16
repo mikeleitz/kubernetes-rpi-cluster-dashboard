@@ -1,0 +1,2 @@
+FROM arm32v7/openjdk:8-alpine
+MAINTAINER Leitz <leitz@mikeleitz.com>
